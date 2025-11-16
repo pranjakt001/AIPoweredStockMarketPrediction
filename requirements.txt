@@ -1,0 +1,41 @@
+# Core Web Framework
+Flask==3.0.0
+flask-cors==4.0.0
+
+# Data Processing
+pandas==2.1.4
+numpy==1.26.2
+
+# Machine Learning & Statistics
+scikit-learn==1.3.2
+statsmodels==0.14.1
+pmdarima==2.0.4
+
+# Data Fetching
+yfinance==0.2.33
+
+# Visualization (for notebooks)
+matplotlib==3.8.2
+seaborn==0.13.0
+
+# Utilities
+joblib==1.3.2
+python-dotenv==1.0.0
+
+# Production Server
+gunicorn==21.2.0
+
+# Development Tools
+pytest==7.4.3
+pytest-cov==4.1.0
+black==23.12.1
+flake8==7.0.0
+
+# Logging
+python-json-logger==2.0.7
+
+# HTTP Requests
+requests==2.31.0
+
+# Time Series
+scipy==1.11.4
