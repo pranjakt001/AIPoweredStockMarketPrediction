@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Stock Market Prediction - ASX200</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🤖 AI Stock Market Prediction</h1>
+                <p class="subtitle">Real-time ASX200 Index Analysis & Forecasting</p>
+            </div>
+            <div class="header-status">
+                <span id="status-indicator" class="status-indicator">⚪ Not Connected</span>
+            </div>
+        </header>
+
+        <!-- Control Panel -->
+        <section class="control-panel">
+            <div class="control-group">
+                <button id="initBtn" class="btn btn-primary">Initialize System</button>
+                <button id="trainBtn" class="btn btn-secondary" disabled>Train Models</button>
+                <button id="refreshBtn" class="btn btn-secondary" disabled>Refresh Data</button>
+            </div>
+            <div class="prediction-controls">
+                <label for="predictionDays">Forecast Days:</label>
+                <select id="predictionDays">
+                    <option value="5">5 Days</option>
+                    <option value="10">10 Days</option>
+                    <option value="15">15 Days</option>
+                    <option value="30">30 Days</option>
+                </select>
+                <button id="predictBtn" class="btn btn-primary" disabled>Get Predictions</button>
+            </div>
+        </section>
+
+        <!-- Current Price Card -->
+        <section class="price-section">
+            <div class="card price-card">
+                <h2>Current ASX200 Index</h2>
+                <div id="currentPrice" class="current-price">
+                    <div class="price-value">Loading...</div>
+                    <div class="price-details">
+                        <span class="detail-item">High: <span id="priceHigh">-</span></span>
+                        <span class="detail-item">Low: <span id="priceLow">-</span></span>
+                        <span class="detail-item">Volume: <span id="priceVolume">-</span></span>
+                    </div>
+                    <div class="price-date">Date: <span id="priceDate">-</span></div>
+                </div>
+            </div>
+
+            <!-- Technical Indicators -->
+            <div class="card indicators-card">
+                <h2>Technical Indicators</h2>
+                <div id="indicators" class="indicators-grid">
+                    <div class="indicator-item">
+                        <span class="indicator-label">RSI:</span>
+                        <span id="rsi" class="indicator-value">-</span>
+                    </div>
+                    <div class="indicator-item">
+                        <span class="indicator-label">MACD:</span>
+                        <span id="macd" class="indicator-value">-</span>
+                    </div>
+                    <div class="indicator-item">
+                        <span class="indicator-label">ATR:</span>
+                        <span id="atr" class="indicator-value">-</span>
+                    </div>
+                    <div class="indicator-item">
+                        <span class="indicator-label">Stochastic:</span>
+                        <span id="stochastic" class="indicator-value">-</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <!-- Historical Chart -->
+            <div class="card chart-card">
+                <h2>Historical Price Data (30 Days)</h2>
+                <canvas id="historicalChart"></canvas>
+            </div>
+
+            <!-- Predictions Chart -->
+            <div class="card chart-card">
+                <h2>Price Predictions</h2>
+                <div id="predictionsContent">
+                    <canvas id="predictionsChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Model Performance -->
+        <section class="models-section">
+            <div class="card models-card">
+                <h2>Model Status</h2>
+                <div id="modelStatus" class="model-status-grid">
+                    <div class="model-item">
+                        <span class="model-name">ARIMA:</span>
+                        <span class="model-status">Not Trained</span>
+                    </div>
+                    <div class="model-item">
+                        <span class="model-name">SARIMA:</span>
+                        <span class="model-status">Not Trained</span>
+                    </div>
+                    <div class="model-item">
+                        <span class="model-name">ML (Ridge):</span>
+                        <span class="model-status">Not Trained</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>AI Powered Stock Market Prediction System | ASX200 Index Analysis</p>
+            <p class="disclaimer">⚠️ Disclaimer: This is for educational purposes only. Not financial advice.</p>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="spinner"></div>
+        <p>Processing...</p>
+    </div>
+
+    <script src="src/app.js"></script>
+</body>
+</html>
